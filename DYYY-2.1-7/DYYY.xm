@@ -2196,3 +2196,14 @@ static BOOL isDownloadFlied = NO;
         %init;
     }
 }
+// 在视图控制器的 viewDidLoad 方法中设置 
+override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = UIColor.clear 
+    view.isOpaque = false // 确保视图层级支持透明度 
+    
+    // 若存在导航栏或 TabBar 需同步设置 
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.isTranslucent = true 
+}
